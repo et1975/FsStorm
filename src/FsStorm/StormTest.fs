@@ -50,7 +50,32 @@ let autoAckBoltRunner testData stormAck fReaderCreator =
             return! stormLogAndThrow (nestedExceptionTrace ex) ()
     }
 
-/// source the touple - set the comp propery
+/// test bolt runner that auto acks received msgs in parallel
+let parallelAutoAckBoltRunner testData stormAck fReaderCreator =
+    async {
+        testData
+        |> Seq.map(fun jmsg -> 
+            async {
+                try
+                    let reader = fReaderCreator
+                    match jmsg,jmsg?stream with
+                    | _, JsonString "__heartbeat" -> ()
+                    | x, _ when isArray x         -> () 
+                    | m, _                        -> 
+                        do! reader jmsg 
+                        match jmsg?id with
+                        | JsonString str -> stormAck str
+                        | _ -> ()
+                with ex ->
+                    return! stormLogAndThrow (nestedExceptionTrace ex) ()
+            }
+        )
+        |> Async.Parallel
+        |> Async.RunSynchronously
+        |> ignore
+    }
+
+/// source the tuple - set the comp propery
 let src name (msg : Json) = msg?comp <- jval name
 /// multilang empty tuple for __heartbeat stream
 let heartbeat = tuple [] |> namedStream "__heartbeat"
