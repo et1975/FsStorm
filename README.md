@@ -7,6 +7,9 @@ See [this blog post][fwaris blog post] for an intro and [docs][docs] for an over
 
 Join the conversation: [![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/FsStorm/FsStorm?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
 
+Update: 
+Insights gained from working with FsStorm have led to a spinoff: [FsShelter](https://github.com/prolucid/FsShelter), check it out if you like the idea of statically typed topologies. 
+
 # Building
 ```
 build
