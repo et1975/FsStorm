@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>FSharpLint</id>
+    <version>0.2.8</version>
+    <authors>Matthew Mcveigh</authors>
+    <owners>Matthew Mcveigh</owners>
+    <licenseUrl>https://github.com/fsprojects/FSharpLint/blob/master/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/fsprojects/FSharpLint/</projectUrl>
+    <iconUrl>https://raw.githubusercontent.com/fsprojects/FSharpLint/master/docs/files/img/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Lint tool for F#.</description>
+    <summary>Lint tool for F#.</summary>
+    <releaseNotes>* Updated FSharp.Compiler.Services to 2.0.0.3
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/148 thanks to @mexx
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/145 thanks to @mexx
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/139
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/141
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/140
+* Fixed bug: https://github.com/fsprojects/FSharpLint/issues/131</releaseNotes>
+    <copyright>Copyright 2015</copyright>
+    <tags>F# fsharp lint FSharpLint</tags>
+  </metadata>
+</package>
