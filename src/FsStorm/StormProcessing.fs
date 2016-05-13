@@ -19,7 +19,7 @@ let submit name (topology:StormThrift.StormTopology) host port uploadedJarLocati
     try
         use tp = new Thrift.Protocol.TBinaryProtocol(txf)
         use c = new Nimbus.Client(tp)
-        c.submitTopology(name, uploadedJarLocation, "", topology)
+        c.submitTopology(name, uploadedJarLocation, "{}", topology)
     finally
         txf.Close()
 
